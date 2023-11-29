@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body class="flex ">
+
+    <div class="container absolute flex items-center justify-center dark:bg-slate-800 bg-gray-100 ">
+
+        <div id="info"></div>
+
+        <div id="quiz-box" class="quiz-box dark:bg-slate-300 relative h-full w-1/2 bg-white dark:text-black rounded-2xl p-6">
+
+            <div class="main-head  h-1/6 flex flex-row justify-between">
+
+                <div class="text">
+
+                    <h2 class="font-bold text-3xl">
+
+                        {{header_data}} Quiz
+
+                    </h2>
+
+                </div>
+
+                <div class="timer dark:text-white  gap-4 flex flex-row bg-gradient-to-r from-cyan-500 to-blue-500 ... h-8 justify-between w-auto p-1 rounded-sm">
+
+                    <div class="text-timer">
+
+                        <p>Time left</p>
+
+                    </div>
+
+                    <div class="label-timer">
+
+                        <p id="timer">8Min</p>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-box mt-5 flex flex-row gap-4 text-center"><br>
+                <form method="post" action="{{ url_for('submit_quiz') }}">
+                    {% for question in question_list_start %}
+                    <div id="question-box" class="flex flex-col mt-4 items-start justify-center head">
+                        <h1 class="font-bold text-xl">{{ question.id }}. {{ question.question_text }}</h1><br>
+
+                        <div class="option-div flex flex-col w-full">
+                            {% for option in question.options %}
+                            <label class="flex gap-2 items-center">
+                                <input type="radio"
+                                    class="btn-2 text-black focus:ring focus:border-blue-300 active:bg-red-500"
+                                    name="question_{{ question.id }}" value="{{ option.option_text }}">
+                                    {{ option.option_text }}
+                            </label><br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <input type="submit" name="submit_button" class="text-white bg-slate-500 ml-auto p-4 w-auto mt-4">
+
+                    
+                </form>
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+    </div>
+
+   
+    <script src="{{ url_for('static', filename='/app.js') }}"></script>
+</body>
+
+</html>
