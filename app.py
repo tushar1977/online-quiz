@@ -1,5 +1,5 @@
-from flask import Flask, render_template, jsonify, request
-from flask_migrate import Migrate
+from flask import Flask, render_template, request
+# from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -7,7 +7,7 @@ app = Flask(__name__ , static_folder="static/")
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///quiz_main.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+# migrate = Migrate(app, db)
 
 
 quiz_categories = ['General Knowledge', 'Science', 'History', 'Geography', 'Sports']
@@ -244,5 +244,5 @@ def submit_quiz():
 
 
 if __name__ == '__main__':
-    # logging.basicConfig(level=logging.DEBUG)
-    app.run(debug=True, port=3000)
+    # logging.basicConfig(level=logging.DEBUG)x``
+    app.run(debug=True, port=8000)
