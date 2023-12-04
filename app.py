@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
-# from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+# from flask_migrate import Migrate
 
 
 app = Flask(__name__ , static_folder="static/")
