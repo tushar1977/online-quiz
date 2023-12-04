@@ -245,4 +245,4 @@ def submit_quiz():
 
 if __name__ == '__main__':
     # logging.basicConfig(level=logging.DEBUG)x``
-    app.run(debug=True, port=8000)
+    app.run(debug=True, port=7000)
